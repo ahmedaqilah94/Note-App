@@ -398,7 +398,6 @@ textarea:focus-visible {
 .floating-add-btn {
   position: fixed;
   right: max(35px, calc((100vw - 1440px) / 2 + 35px));
-  bottom: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
