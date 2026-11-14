@@ -4,7 +4,7 @@ A simple, clean, and responsive notes application built with HTML, CSS, and Vani
 
 ## 🚀 Live Demo
 
-[View Live Demo](YOUR_LIVE_DEMO_URL)
+[View Live Demo](https://ahmedaqilah94.github.io/Note-App/)
 
 ## 📸 About The Project
 
