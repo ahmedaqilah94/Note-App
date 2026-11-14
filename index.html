@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Almdrasa Notes - A simple notes application."
+    />
+    <title>Almdrasa Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aclonica&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="mobile-header">
+      <button class="icon-btn" id="mobile-menu-btn" aria-label="Open menu">
+        <svg
+          viewBox="0 0 24 24"
+          width="22"
+          height="22"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+        >
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <a href="#" class="logo mobile-logo" id="mobile-logo">Almdrasa-Notes</a>
+
+      <button
+        class="icon-btn"
+        id="mobile-search-btn"
+        aria-label="Toggle search"
+      >
+        <svg
+          id="search-icon-svg"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <svg
+          id="close-search-svg"
+          class="hidden"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          stroke="currentColor"
+          stroke-width="2"
+          fill="none"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </header>
+
+    <div class="app-container" id="app-container">
+      <aside class="sidebar" id="sidebar">
+        <button
+          class="icon-btn close-drawer-btn"
+          id="close-drawer-btn"
+          aria-label="Close menu"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="22"
+            height="22"
+            stroke="currentColor"
+            stroke-width="2"
+            fill="none"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <a href="#" class="logo desktop-logo" id="logo">Almdrasa-Notes</a>
+
+        <div class="search-box" id="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m16 16 4 4"></path>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search"
+            aria-label="Search notes"
+          />
+        </div>
+
+        <nav class="sidebar-nav">
+          <button class="nav-link active" id="show-notes">
+            <span class="active-indicator"></span>
+            <span>Notes</span>
+          </button>
+          <button class="nav-link" id="add-note-nav">
+            <span class="active-indicator"></span>
+            <span>Add Note</span>
+          </button>
+        </nav>
+      </aside>
+
+      <section class="notes-panel" id="notes-panel">
+        <div class="notes-section" id="pinned-notes" data-testid="pinned-notes">
+          <h2 class="section-title">PINNED</h2>
+          <div class="notes-list" id="pinned-list"></div>
+        </div>
+
+        <div class="notes-section" id="other-notes" data-testid="other-notes">
+          <h2 class="section-title">NOTES</h2>
+          <div class="notes-list" id="other-list"></div>
+        </div>
+
+        <p class="empty-search" id="empty-search">No notes found.</p>
+      </section>
+
+      <main class="content-panel" id="content-panel">
+        <div class="note-details" id="note-details">
+          <div class="details-header">
+            <h1 id="details-title">Select a note</h1>
+            <div class="details-date-author">
+              <p class="details-date" id="details-date"></p>
+              <p class="details-author" id="details-author"></p>
+            </div>
+          </div>
+          <div class="details-text" id="details-text">
+            Select a note to view its content.
+          </div>
+        </div>
+
+        <form class="add-note-form hidden" id="note-form">
+          <h1>Add Note</h1>
+
+          <div class="form-group">
+            <label for="note-title">Title*</label>
+            <input type="text" id="note-title" data-testid="note-title" />
+          </div>
+
+          <div class="form-group">
+            <label for="note-author">Author*</label>
+            <input type="text" id="note-author" />
+          </div>
+
+          <div class="form-group">
+            <label for="note-text">Your Note*</label>
+            <textarea
+              id="note-text"
+              data-testid="note-text"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button
+              type="submit"
+              class="primary-btn"
+              id="add-note"
+              data-testid="add-note"
+            >
+              Add Note
+            </button>
+            <button type="button" class="primary-btn" id="add-pinned-note">
+              Add Pinned Note
+            </button>
+          </div>
+        </form>
+
+        <button
+          class="floating-add-btn"
+          id="floating-add"
+          aria-label="Add new note"
+          title="Add Note"
+        >
+          <svg
+            width="35"
+            height="35"
+            viewBox="0 0 35 35"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M33.3342 16H18.6675V1.33333C18.6675 0.979711 18.5271 0.640573 18.277 0.390525C18.027 0.140476 17.6878 0 17.3342 0C16.9806 0 16.6414 0.140476 16.3914 0.390525C16.1413 0.640573 16.0009 0.979711 16.0009 1.33333V16H1.33421C0.980585 16 0.641447 16.1405 0.391398 16.3905C0.14135 16.6406 0.000873709 16.9797 0.000873709 17.3333C-0.00570579 17.5066 0.0249361 17.6793 0.090734 17.8397C0.156532 18.0002 0.255957 18.1447 0.382309 18.2634C0.508661 18.3822 0.659005 18.4725 0.823208 18.5283C0.987411 18.584 1.16166 18.6039 1.33421 18.5867H16.0009V33.3333C16.0009 33.687 16.1413 34.0261 16.3914 34.2761C16.6414 34.5262 16.9806 34.6667 17.3342 34.6667C17.6878 34.6667 18.027 34.5262 18.277 34.2761C18.5271 34.0261 18.6675 33.687 18.6675 33.3333V18.6667H33.3342C33.6878 18.6667 34.027 18.5262 34.277 18.2761C34.5271 18.0261 34.6675 17.687 34.6675 17.3333C34.6675 16.9797 34.5271 16.6405 34.277 16.3905C34.027 16.1405 33.6878 16 33.3342 16Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </main>
+    </div>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>
